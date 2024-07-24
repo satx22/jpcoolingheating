@@ -104,72 +104,71 @@
     <!-- Page Header End -->
 
     <!-- Quote Start -->
-<div class="container-fluid overflow-hidden px-lg-0" style="margin: 6rem 0;">
-    <div class="container quote px-lg-0">
-        <div class="row g-0 mx-lg-0">
-            <div class="col-lg-6 quote-text" data-parallax="scroll" data-image-src="{% static 'img/carousel-1.jpg' %}">
-                <div class="h-100 px-4 px-sm-5 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="text-white mb-4">We are here to provide you with the best air conditioning services. Reach out to us for any assistance.</h1>
-                    <p class="text-light mb-5">At JP Cooling and Heating, we believe in providing transparent and reliable services. That's why we offer free quotes on all AC services, ensuring you know exactly what to expect without any hidden costs. Contact us today to schedule your no-obligation consultation and take the first step towards a more comfortable home.</p>
-                    <a href="" class="align-self-start btn btn-primary py-3 px-5">More Details</a>
+    <div class="container-fluid overflow-hidden px-lg-0" style="margin: 6rem 0;">
+        <div class="container quote px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 quote-text" data-parallax="scroll" data-image-src="{% static 'img/carousel-1.jpg' %}">
+                    <div class="h-100 px-4 px-sm-5 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
+                        <h1 class="text-white mb-4">We are here to provide you with the best air conditioning services. Reach out to us for any assistance.</h1>
+                        <p class="text-light mb-5">At JP Cooling and Heating, we believe in providing transparent and reliable services. That's why we offer free quotes on all AC services, ensuring you know exactly what to expect without any hidden costs. Contact us today to schedule your no-obligation consultation and take the first step towards a more comfortable home.</p>
+                        <a href="" class="align-self-start btn btn-primary py-3 px-5">More Details</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="{% static 'img/carousel-2.jpg' %}">
-                <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="bg-white p-4 p-sm-5">
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div class="alert alert-{{ message.tags }}">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                        <form method="post" action="{% url 'quote' %}">
-                            {% csrf_token %}
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        {{ form.name }}
-                                        <label for="gname">Your Name</label>
+                <div class="col-lg-6 quote-form" data-parallax="scroll" data-image-src="{% static 'img/carousel-2.jpg' %}">
+                    <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="bg-white p-4 p-sm-5">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <form method="post" action="{% url 'quote' %}">
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            {{ form.name|as_crispy_field }}
+                                            <label for="gname">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            {{ form.email|as_crispy_field }}
+                                            <label for="gmail">Your Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            {{ form.mobile|as_crispy_field }}
+                                            <label for="cname">Your Mobile</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            {{ form.service_type|as_crispy_field }}
+                                            <label for="cage">Service Type</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            {{ form.message|as_crispy_field }}
+                                            <label for="message">Message</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary py-3 px-5" type="submit">Get A Free Quote</button>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        {{ form.email }}
-                                        <label for="gmail">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        {{ form.mobile }}
-                                        <label for="cname">Your Mobile</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        {{ form.service_type }}
-                                        <label for="cage">Service Type</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        {{ form.message }}
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5" type="submit">Get A Free Quote</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Quote End -->
-
+    <!-- Quote End -->
 
     <!-- Include the combined template for newsletter and quote forms -->
     <div class="container-xxl py-5">
