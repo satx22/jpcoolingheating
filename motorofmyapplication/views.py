@@ -88,3 +88,14 @@ def newsletter_signup(request):
 
 def newsletter_signup_success(request):
     return render(request, 'newsletter_signup_success.html')
+
+def quote(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        recaptcha_token = request.POST.get('g-recaptcha-response')
+        if form.is_valid() and verify_recaptcha(recaptcha_token):
+            # Handle form submission (e.g., save data, send email, etc.)
+            return redirect('quote_success')
+    else:
+        form = ContactForm()
+    return render(request, 'quote.html', {'form': form})
