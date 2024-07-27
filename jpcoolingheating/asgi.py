@@ -1,3 +1,4 @@
+  GNU nano 7.2                                                                                          asgi.py                                                                                                    
 """
 ASGI config for jpcoolingheating project.
 
@@ -14,3 +15,8 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jpcoolingheating.settings')
 
 application = get_asgi_application()
+
+
+
+
+
