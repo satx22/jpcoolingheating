@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     'www.jpcoolingandheating.pro',
     'localhost',
     '127.0.0.1',
-    '134.209.127.142',
+    '137.184.138.133',
     '10.116.0.2',
     '*',
 ]
