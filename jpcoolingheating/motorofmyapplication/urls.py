@@ -1,3 +1,4 @@
+
 from django.urls import path
 from .views import (
     index, about, contact, contact_success, feature, financing,
@@ -20,3 +21,5 @@ urlpatterns = [
     path('newsletter_signup/', newsletter_signup, name='newsletter_signup'),
     path('newsletter_signup/success/', newsletter_signup_success, name='newsletter_signup_success'),
 ]
+
+
