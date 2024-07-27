@@ -28,6 +28,16 @@
     visibility: visible;
     opacity: 1;
 }
+/*** Custom styles for the Nextdoor logo ***/
+
+.nextdoor-logo {
+    display: block;
+    margin: 0 auto;
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+    margin-top: 8px; /* Adjust vertical alignment as needed */
+}
+
 
 
 /*** Button ***/
