@@ -1,3 +1,4 @@
+  GNU nano 7.2                                                                                        settings.py                                                                                                  
 from pathlib import Path
 import environ
 import os
@@ -25,20 +26,21 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = [
-    'jpcoolingheating.pro',
-    'www.jpcoolingheating.pro',
+    'jpcoolingandheating.pro',
+    'www.jpcoolingandheating.pro',
     'localhost',
     '127.0.0.1',
-    '159.89.53.173',
+    '134.209.127.142',
+    '10.116.0.2',
+    '*',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://jpcoolingheating.pro',
-    'https://www.jpcoolingheating.pro',
+    'https://jpcoolingandheating.pro',
+    'https://www.jpcoolingandheating.pro',
     'http://localhost',
     'http://127.0.0.1',
 ]
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -47,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jpcoolingheating.motorofmyapplication',
+    'motorofmyapplication',  # Ensure this is correct
     'crispy_forms',
     'crispy_bootstrap5',
     'channels',
@@ -81,10 +83,8 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'jpcoolingheating.wsgi.application'
 ASGI_APPLICATION = 'jpcoolingheating.asgi.application'
-
 # Database
 DATABASES = {
     'default': {
@@ -121,21 +121,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Collect static files here in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Security settings
-SECURE_SSL_REDIRECT = False  # Set to True in production
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 X_FRAME_OPTIONS = 'DENY'
-
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
@@ -153,6 +152,7 @@ API_KEY = env('API_KEY')
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -160,7 +160,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/root/jpcoolingheating/logs/django.log',
+            'filename': os.path.join(BASE_DIR, 'logs', 'django.log'),
         },
     },
     'loggers': {
@@ -171,3 +171,4 @@ LOGGING = {
         },
     },
 }
+
